@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Plan 10 km — 14 Mois</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sage:       #8aad8a;
+      --sage-light: #b5cdb5;
+      --sage-pale:  #ddeadd;
+      --wood:       #a07850;
+      --wood-light: #c9a87c;
+      --wood-pale:  #ede0cf;
+      --beige:      #f5f0e8;
+      --beige-warm: #ede3d3;
+      --mint:       #cce8d8;
+      --mint-deep:  #7abfa0;
+      --blue-pastel:#c8ddf0;
+      --blue-deep:  #6ea8cc;
+      --text-dark:  #2e2e2e;
+      --text-mid:   #5a5245;
+      --text-light: #8a7e72;
+      --white:      #fefcf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--beige);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--mint-deep) 50%, var(--wood-light) 100%);
+      padding: 70px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .hero p {
+      color: rgba(255,255,255,0.92);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── INTRO CARDS ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .intro-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border-left: 4px solid var(--sage);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .intro-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .intro-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--wood);
+      margin-bottom: 6px;
+    }
+    .intro-card p { font-size: 0.88rem; color: var(--text-mid); }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    /* ── PHASE BLOCK ── */
+    .phase-block {
+      margin-bottom: 60px;
+    }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .phase-pill {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .phase-1 .phase-pill { background: var(--mint); color: #2d6e52; }
+    .phase-2 .phase-pill { background: var(--blue-pastel); color: #2a5f84; }
+    .phase-3 .phase-pill { background: var(--wood-pale); color: #6b4e2a; }
+    .phase-4 .phase-pill { background: var(--sage-pale); color: #3a5e3a; }
+
+    .phase-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    .phase-desc {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      max-width: 700px;
+      line-height: 1.8;
+    }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 0.88rem;
+    }
+    thead th {
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .phase-1 thead th { background: var(--mint); color: #2d6e52; }
+    .phase-2 thead th { background: var(--blue-pastel); color: #2a5f84; }
+    .phase-3 thead th { background: var(--wood-pale); color: #6b4e2a; }
+    .phase-4 thead th { background: var(--sage-pale); color: #3a5e3a; }
+
+    tbody tr { border-bottom: 1px solid var(--beige-warm); transition: background 0.2s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--beige); }
+    tbody td { padding: 14px 20px; vertical-align: top; color: var(--text-dark); }
+    tbody td:first-child { font-weight: 600; color: var(--wood); white-space: nowrap; }
+
+    .tip-inline {
+      display: inline-block;
+      background: var(--sage-pale);
+      color: #3a5e3a;
+      font-size: 0.75rem;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-top: 4px;
+    }
+
+    /* ── MOTIVATIONAL QUOTE ── */
+    .quote-band {
+      background: linear-gradient(to right, var(--sage-pale), var(--wood-pale));
+      border-radius: 16px;
+      padding: 28px 36px;
+      margin: 48px 0;
+      border-left: 5px solid var(--sage);
+      position: relative;
+    }
+    .quote-band::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--sage);
+      opacity: 0.3;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+    .quote-band p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      font-style: italic;
+      padding-left: 20px;
+    }
+    .quote-band span {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      font-style: normal;
+      color: var(--text-light);
+      padding-left: 20px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── TIPS GRID ── */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 12px;
+    }
+    .tip-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .tip-card .tip-icon { font-size: 2rem; margin-bottom: 12px; }
+    .tip-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    .tip-card ul { padding-left: 18px; }
+    .tip-card ul li { font-size: 0.88rem; color: var(--text-mid); margin-bottom: 6px; }
+
+    .tip-equip { border-top: 3px solid var(--mint-deep); }
+    .tip-recup  { border-top: 3px solid var(--wood-light); }
+    .tip-mental { border-top: 3px solid var(--blue-deep); }
+
+    /* ── FINAL BANNER ── */
+    .final-banner {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--mint-deep) 100%);
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .final-banner h2 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .final-banner p {
+      color: rgba(255,255,255,0.9);
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+    .final-emoji { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 50px 24px 40px; }
+      .wrapper { padding: 32px 16px 60px; }
+      .quote-band { padding: 24px 20px; }
+      .final-banner { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-tag">✦ Programme personnalisé</div>
+  <h1>De zéro à 10 km<br/>en 14 mois</h1>
+  <p>Un plan bienveillant, progressif et réaliste — conçu pour toi qui débutes et qui veux arriver au départ (et à l'arrivée !) avec le sourire.</p>
+  <div class="hero-badges">
+    <span class="badge">🗓️ 14 mois</span>
+    <span class="badge">👟 2 sorties / semaine</span>
+    <span class="badge">💚 Débutante friendly</span>
+    <span class="badge">🏁 10 km comme objectif</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     WRAPPER
+════════════════════════════════════════ -->
+<div class="wrapper">
+
+  <!-- INTRO CARDS -->
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="icon">🌱</div>
+      <h3>La philosophie</h3>
+      <p>Pas de chrono, pas de pression. L'objectif c'est de finir les 10 km en se sentant bien dans son corps.</p>
+    </div>
+    <div class="intro-card">
+      <div class="icon">📅</div>
+      <h3>Le rythme</h3>
+      <p>2 sorties par semaine, c'est parfait. La régularité sur 14 mois vaut 100x mieux que le sprint sur 3 semaines.</p>
+    </div>
+    <div class="intro-card">
+      <div class="icon">💛</div>
+      <h3>La règle d'or</h3>
+      <p>Si tu peux parler sans être essoufflée pendant que tu cours, tu es à la bonne allure. C'est vraiment aussi simple que ça.</p>
+    </div>
+    <div class="intro-card">
+      <div class="icon">🩺</div>
+      <h3>Avant de commencer</h3>
+      <p>Consulte ton médecin si tu as le moindre doute sur ta santé. Un bilan de départ, c'est jamais du temps perdu.</p>
+    </div>
+  </div>
+
+  <!-- ════ PHASE 1 ════ -->
+  <div class="phase-block phase-1">
+    <div class="phase-header">
+      <span class="phase-pill">Phase 1 · Mois 1 à 3</span>
+      <span class="phase-title">🌿 La Fondation</span>
+    </div>
+    <p class="phase-desc">
+      On commence en douceur — vraiment en douceur. L'alternance marche/course permet à tes articulations, tes tendons et tes muscles de s'adapter progressivement. Aucune urgence. C'est ici que tout se construit, en silence et en solidité.
+    </p>
+    <div class="table-wrap phase-1">
+      <table>
+        <thead>
+          <tr>
+            <th>Semaine</th>
+            <th>Séance 1 (ex : mercredi)</th>
+            <th>Séance 2 (ex : samedi)</th>
+            <th>Durée totale</th>
+            <th>Vibe du moment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S1 – S2</td>
+            <td>3 min marche · 1 min course × 5 fois</td>
+            <td>Idem — répète tranquillement</td>
+            <td>~20 min</td>
+            <td>Découverte, sensation, plaisir pur</td>
+          </tr>
+          <tr>
+            <td>S3 – S4</td>
+            <td>2 min marche · 2 min course × 5 fois</td>
+            <td>Idem + 5 min de marche cool-down</td>
+            <td>~25 min</td>
+            <td>Écoute ton souffle, pas de jugement</td>
+          </tr>
+          <tr>
+            <td>S5 – S6</td>
+            <td>2 min marche · 3 min course × 5 fois</td>
+            <td>Idem — si l'envie est là, ajoute un bloc</td>
+            <td>~28 min</td>
+            <td>Tu commences à sentir que tu "tiens"</td>
+          </tr>
+          <tr>
+            <td>S7 – S8</td>
+            <td>1 min marche · 4 min course × 5 fois</td>
+            <td>Idem — allure "on-peut-parler"</td>
+            <td>~30 min</td>
+            <td>La régularité devient naturelle ✨</td>
+          </tr>
+          <tr>
+            <td>S9 – S10</td>
+            <td>1 min marche · 5 min course × 4 fois</td>
+            <td>Baisse d'un cran si tu te sens fatiguée</td>
+            <td>~28 min</td>
+            <td>Semaine de consolidation, pas de rush</td>
+          </tr>
+          <tr>
+            <td>S11 – S12</td>
+            <td>1 min marche · 7 min course × 3 fois</td>
+            <td>Idem + marche de 5 min à la fin</td>
+            <td>~30 min</td>
+            <td>WOW — tu cours presque sans pause !</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <p>Le plus dur dans la course, ce n'est pas la distance. C'est d'enfiler les chaussures pour la première fois.</p>
+    <span>— Une fois que tu l'as fait, tu l'as toujours fait. Bravo pour chaque sortie. 🌱</span>
+  </div>
+
+  <!-- ════ PHASE 2 ════ -->
+  <div class="phase-block phase-2">
+    <div class="phase-header">
+      <span class="phase-pill">Phase 2 · Mois 4 à 7</span>
+      <span class="phase-title">🌊 L'Endurance</span>
+    </div>
+    <p class="phase-desc">
+      Tu cours maintenant sans (presque) t'en rendre compte. On va allonger la durée des séances graduellement. L'objectif de cette phase : être capable de courir 40 à 50 minutes d'affilée, à ton rythme, tranquillement. Pas de performance, juste de la constance.
+    </p>
+    <div class="table-wrap phase-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Semaine</th>
+            <th>Séance 1</th>
+            <th>Séance 2</th>
+            <th>Durée course</th>
+            <th>Intention</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S13 – S14</td>
+            <td>Course continue 20 min</td>
+            <td>Course continue 22 min</td>
+            <td>20–22 min</td>
+            <td>Première vraie course sans pause — fierté 💪</td>
+          </tr>
+          <tr>
+            <td>S15 – S16</td>
+            <td>25 min en continu</td>
+            <td>25 min — teste un nouveau chemin</td>
+            <td>25 min</td>
+            <td>La curiosité, meilleure amie de la régularité</td>
+          </tr>
+          <tr>
+            <td>S17 – S18</td>
+            <td>28 min continu</td>
+            <td>30 min continu (semaine historique !)</td>
+            <td>28–30 min</td>
+            <td>Tu cours 30 minutes. Laisse ça rentrer.</td>
+          </tr>
+          <tr>
+            <td>S19 – S20</td>
+            <td>32 min</td>
+            <td>30 min (semaine de légère récup)</td>
+            <td>30–32 min</td>
+            <td>Une semaine sur deux, on lève un peu le pied</td>
+          </tr>
+          <tr>
+            <td>S21 – S22</td>
+            <td>35 min</td>
+            <td>35 min — essaie un podcast ou une playlist</td>
+            <td>35 min</td>
+            <td>Le temps passe vite quand on est dans sa bulle</td>
+          </tr>
+          <tr>
+            <td>S23 – S24</td>
+            <td>38 min</td>
+            <td>35 min (semaine allégée)</td>
+            <td>35–38 min</td>
+            <td>Écoute ton corps — c'est lui le coach ultime</td>
+          </tr>
+          <tr>
+            <td>S25 – S26</td>
+            <td>42 min</td>
+            <td>40 min</td>
+            <td>40–42 min</td>
+            <td>Milestone atteint 🏔️ — tu cours plus de 40 min</td>
+          </tr>
+          <tr>
+            <td>S27 – S28</td>
+            <td>45 min</td>
+            <td>40 min (récup active)</td>
+            <td>40–45 min</td>
+            <td>On consolide avant de monter encore</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ════ PHASE 3 ════ -->
+  <div class="phase-block phase-3">
+    <div class="phase-header">
+      <span class="phase-pill">Phase 3 · Mois 8 à 11</span>
+      <span class="phase-title">🍂 La Consolidation</span>
+    </div>
+    <p class="phase-desc">
+      Tu es solide, maintenant. On va introduire des variations légères d'allure — pas pour aller vite, mais pour habituer ton corps à moduler son effort. Quelques fartleks (accélérations libres et joyeuses), quelques côtes douces. Et toujours une séance plus longue et une plus courte par semaine.
+    </p>
+    <div class="table-wrap phase-3">
+      <table>
+        <thead>
+          <tr>
+            <th>Semaine</th>
+            <th>Séance longue</th>
+            <th>Séance variée</th>
+            <th>Durée totale</th>
+            <th>Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S29 – S30</td>
+            <td>50 min allure douce et régulière</td>
+            <td>40 min : 30 min facile + 3 × 2 min légère accélération</td>
+            <td>40–50 min</td>
+            <td>Introduire la notion d'effort variable 🌬️</td>
+          </tr>
+          <tr>
+            <td>S31 – S32</td>
+            <td>52 min continu</td>
+            <td>40 min : 5 × 3 min fartlek (envie spontanée d'accélérer)</td>
+            <td>40–52 min</td>
+            <td>Le fartlek c'est juste : "je sprinte jusqu'au prochain arbre" 🌳</td>
+          </tr>
+          <tr>
+            <td>S33 – S34</td>
+            <td>55 min (ta plus longue sortie !)</td>
+            <td>40 min incluant une petite côte douce × 3</td>
+            <td>40–55 min</td>
+            <td>Les côtes renforcent sans se rendre compte</td>
+          </tr>
+          <tr>
+            <td>S35 – S36</td>
+            <td>50 min (semaine allégée)</td>
+            <td>35 min facile — jambes légères</td>
+            <td>35–50 min</td>
+            <td>Semaine de récupération programmée — importante !</td>
+          </tr>
+          <tr>
+            <td>S37 – S38</td>
+            <td>58 min continu</td>
+            <td>45 min : variations libres au feeling</td>
+            <td>45–58 min</td>
+            <td>Tu cours presque 1 heure. C'est ouf. 🤯</td>
+          </tr>
+          <tr>
+            <td>S39 – S40</td>
+            <td>60 min (objectif symbolique 🎯)</td>
+            <td>45 min dont 4 × 3 min fartlek</td>
+            <td>45–60 min</td>
+            <td>La heure de course — une vraie coureuse.</td>
+          </tr>
+          <tr>
+            <td>S41 – S42</td>
+            <td>60 min — teste un parcours de 7–8 km</td>
+            <td>45 min récup douce</td>
+            <td>45–60 min</td>
+            <td>On s'approche de la distance cible ✨</td>
+          </tr>
+          <tr>
+            <td>S43 – S44</td>
+            <td>55 min (semaine allégée)</td>
+            <td>40 min facile</td>
+            <td>40–55 min</td>
+            <td>Récup avant la phase finale — smart move 🧠</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <p>Chaque sortie où tu rentres chez toi en te sentant bien, c'est une victoire. Le 10 km n'est que la célébration de tous ces petits wins.</p>
+    <span>— Garde cette énergie. La ligne d'arrivée, elle se mérite — et tu la mérites déjà. 🏁</span>
+  </div>
+
+  <!-- ════ PHASE 4 ════ -->
+  <div class="phase-block phase-4">
+    <div class="phase-header">
+      <span class="phase-pill">Phase 4 · Mois 12 à 14</span>
+      <span class="phase-title">🏁 L'Objectif</span>
+    </div>
+    <p class="phase-desc">
+      C'est le sprint final — mais un sprint doux. On affine, on se prépare mentalement, et surtout on ne sur-entraîne pas. Les deux dernières semaines avant la course sont cruciales : moins, c'est plus. On préserve l'énergie pour le grand jour.
+    </p>
+    <div class="table-wrap phase-4">
+      <table>
+        <thead>
+          <tr>
+            <th>Semaine</th>
+            <th>Séance longue</th>
+            <th>Séance courte / Qualité</th>
+            <th>Durée</th>
+            <th>Objectif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S45 – S46</td>
+            <td>65 min continu (tu dépasses la durée du 10 km !)</td>
+            <td>50 min : 35 min facile + 4 × 3 min fartlek</td>
+            <td>50–65 min</td>
+            <td>Confirmer que tu tiens la durée cible</td>
+          </tr>
+          <tr>
+            <td>S47 – S48</td>
+            <td>70 min — parcours varié, belle sortie</td>
+            <td>50 min allure confort</td>
+            <td>50–70 min</td>
+            <td>Point culminant de l'entraînement 🔝</td>
+          </tr>
+          <tr>
+            <td>S49 – S50</td>
+            <td>60 min (on commence à décharger)</td>
+            <td>45 min facile — jambes fraîches</td>
+            <td>45–60 min</td>
+            <td>Phase de tapering : moins de volume, fraîcheur max</td>
+          </tr>
+          <tr>
+            <td>S51</td>
+            <td>40 min très facile — juste pour sentir ses jambes</td>
+            <td>25 min jogging très léger</td>
+            <td>25–40 min</td>
+            <td>On préserve tout. Pas d'héroïsme cette semaine.</td>
+          </tr>
+          <tr>
+            <td>S52<br/><span class="tip-inline">J-7 à J-1</span></td>
+            <td colspan="2">20–25 min footing très doux — juste pour rester dans le rythme. Rien de plus. Dors bien, mange bien, hydrate-toi.</td>
+            <td>20–25 min</td>
+            <td>Corps reposé = course réussie 💚</td>
+          </tr>
+          <tr>
+            <td style="color:#3a5e3a; font-weight:700;">🎉 JOUR J</td>
+            <td colspan="2">Tu te lèves, tu t'habilles, tu souris. Tu as fait tout le boulot. Là, c'est juste la fête.</td>
+            <td>10 km ✨</td>
+            <td>Partir doucement, finir en souriant. C'est tout.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ════ TIPS SECTION ════ -->
+  <div style="margin-top: 60px;">
+    <div class="section-title">Les essentiels hors piste</div>
+    <div class="section-subtitle">Équipement, récupération, mental — les trucs qui font VRAIMENT la différence.</div>
+
+    <div class="tips-grid">
+
+      <div class="tip-card tip-equip">
+        <div class="tip-icon">👟</div>
+        <h3>Équipement</h3>
+        <ul>
+          <li><strong>Chaussures :</strong> Fais-toi analyser la foulée dans un magasin spécialisé. C'est l'investissement n°1. Point.</li>
+          <li><strong>Chaussettes techniques :</strong> Elles évitent les ampoules. Sous-estimées, over-importantes.</li>
+          <li><strong>Brassière de sport :</strong> Adapte le maintien à ta morphologie — ça change tout au confort.</li>
+          <li><strong>Vêtements techniques :</strong> Matières respirantes qui évacuent la transpiration. Bye-bye le coton.</li>
+          <li><strong>Montre / appli :</strong> Garmin, Coros ou simplement Nike Run Club sur ton téléphone. Pour le plaisir de suivre ta progression, pas pour s'obséder.</li>
+          <li><strong>Gourde :</strong> Si tes sorties dépassent 45 min, pense à t'hydrater en chemin.</li>
+        </ul>
+      </div>
+
+      <div class="tip-card tip-recup">
+        <div class="tip-icon">🛁</div>
+        <h3>Récupération</h3>
+        <ul>
+          <li><strong>Étirements :</strong> 10 min après chaque séance. Mollets, quadriceps, hanches. Doux, pas douloureux.</li>
+          <li><strong>Sommeil :</strong> C'est là que le corps se répare vraiment. 7–9h, sans négo.</li>
+          <li><strong>Hydratation :</strong> Commence à boire avant d'avoir soif. L'eau avant et après la course, c'est non-négociable.</li>
+          <li><strong>Alimentation :</strong> Pas besoin de régime spécial. Juste manger varié, avec assez de glucides pour l'énergie.</li>
+          <li><strong>Jours de repos :</strong> Ils font partie du plan. Un jour off, c'est un jour où ton corps s'améliore.</li>
+          <li><strong>Rouleau de massage :</strong> Foam roller sur les cuisses et mollets après les longues sorties — little sorcery. ✨</li>
+        </ul>
+      </div>
+
+      <div class="tip-card tip-mental">
+        <div class="tip-icon">🧠</div>
+        <h3>Le mental</h3>
+        <ul>
+          <li><strong>Mauvaises séances :</strong> Elles arrivent. Ce n'est pas un signe que tu as régressé, c'est juste la vie. La prochaine sera meilleure.</li>
+          <li><strong>Comparaison :</strong> Ton seul adversaire c'est toi d'il y a 3 mois. Et cette version, tu la bats déjà.</li>
+          <li><strong>Journal de bord :</strong> Note tes séances, tes ressentis. Relire ça dans 6 mois va te faire quelque chose de fort.</li>
+          <li><strong>Communauté :</strong> Un groupe de running local ou en ligne, ça motive x3. Tu n'as pas à faire ça seule.</li>
+          <li><strong>Blessure :</strong> Si quelque chose fait mal (pas juste inconfortable), arrête et consulte. Mieux vaut 1 semaine de pause que 6 semaines d'arrêt.</li>
+          <li><strong>Célébrations :</strong> Chaque jalon mérite d'être fêté. Premier 20 min sans pause ? C'est énorme. Fête-le.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FINAL BANNER -->
+  <div class="final-banner">
+    <span class="final-emoji">🌿</span>
+    <h2>Tu es déjà en route.</h2>
+    <p>
+      Il n'y a pas de "vraie coureuse" dans le club et toi qui attends d'y entrer. La vraie coureuse, c'est celle qui met ses chaussures et sort. Toi. Ce plan, c'est juste la carte. Le voyage, c'est toi qui le vis. Et dans 14 mois, tu franchiras cette ligne d'arrivée avec tout ce que tu auras construit.
+      <br /><br />
+      <strong>On est fier de toi avant même que tu aies commencé. 💚</strong>
+    </p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Plan non-médical — consulte un professionnel de santé avant de débuter. Adapte toujours en fonction de tes ressentis.
+</div>
+
+</body>
+</html>
